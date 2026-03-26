@@ -6,85 +6,51 @@
 <title>주식회사 메종드파랑 | 2025 주주총회 전자투표</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy:#1a2744; --navy2:#253660;
-  --gold:#b8963e; --gold-light:#d4af6a; --gold-pale:#f5eed8;
-  --bg:#f4f2ee; --card:#fff; --border:#ddd9d0;
-  --text:#1c1a17; --text2:#6a6760; --text3:#a09e99;
-  --yes-bg:#eaf3de; --yes-bd:#3B6D11; --yes-tx:#1e4a09;
-  --no-bg:#fcebeb;  --no-bd:#A32D2D;  --no-tx:#6b1a1a;
-  --abs-bg:#f0eeea; --abs-bd:#888780; --abs-tx:#444441;
-  --r:12px; --rs:8px;
-}
+:root{--navy:#1a2744;--navy2:#253660;--gold:#b8963e;--gold-light:#d4af6a;--gold-pale:#f5eed8;--bg:#f4f2ee;--card:#fff;--border:#ddd9d0;--text:#1c1a17;--text2:#6a6760;--text3:#a09e99;--yes-bg:#eaf3de;--yes-bd:#3B6D11;--yes-tx:#1e4a09;--no-bg:#fcebeb;--no-bd:#A32D2D;--no-tx:#6b1a1a;--abs-bg:#f0eeea;--abs-bd:#888780;--abs-tx:#444441;--r:12px;--rs:8px;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
-
+body{font-family:"Noto Sans KR",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
 .page-header{background:var(--navy);border-bottom:3px solid var(--gold);}
 .header-inner{max-width:800px;margin:0 auto;padding:18px 20px;}
 .header-eyebrow{font-size:11px;color:#8a9bbf;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
-.header-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:#fff;margin-bottom:8px;}
+.header-title{font-family:"Noto Serif KR",serif;font-size:21px;font-weight:700;color:#fff;margin-bottom:8px;}
 .header-meta{display:flex;gap:14px;flex-wrap:wrap;}
 .hchip{font-size:11px;color:#8a9bbf;} .hchip span{color:var(--gold-light);}
-
 .container{max-width:800px;margin:0 auto;padding:22px 16px 60px;}
 .tabs{display:flex;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:4px;margin-bottom:22px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
-.tab{flex:1;padding:10px 6px;text-align:center;font-size:13px;font-weight:500;border-radius:var(--rs);cursor:pointer;color:var(--text2);border:none;background:transparent;transition:all .2s;font-family:'Noto Sans KR',sans-serif;}
+.tab{flex:1;padding:11px 6px;text-align:center;font-size:13px;font-weight:500;border-radius:var(--rs);cursor:pointer;color:var(--text2);border:none;background:transparent;transition:all .2s;font-family:"Noto Sans KR",sans-serif;}
 .tab.active{background:var(--navy);color:var(--gold-light);}
 .tab:not(.active):hover{background:var(--bg);}
-
 .panel{display:none;} .panel.active{display:block;animation:fi .2s ease;}
 @keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
 .card-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);}
 .card-icon{width:34px;height:34px;border-radius:var(--rs);background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .card-title{font-size:15px;font-weight:700;}
 .card-sub{font-size:12px;color:var(--text2);margin-top:2px;}
-
-/* 설정 강조박스 */
-.setup-box{background:var(--navy);border-radius:var(--r);padding:20px 22px;margin-bottom:16px;}
-.setup-title{font-size:13px;color:var(--gold-light);font-weight:500;margin-bottom:10px;}
-.setup-url-row{display:flex;gap:8px;align-items:center;}
-.setup-input{flex:1;padding:10px 14px;border:1px solid #3a4f6e;border-radius:var(--rs);background:#0d1e36;color:#e0e8f4;font-size:13px;font-family:monospace;}
-.setup-input:focus{outline:none;border-color:var(--gold);}
-.setup-hint{font-size:11px;color:#8a9bbf;margin-top:8px;line-height:1.6;}
-.setup-hint a{color:var(--gold-light);}
-.status-dot{width:8px;height:8px;border-radius:50%;background:#888;flex-shrink:0;}
-.status-dot.ok{background:#639922;} .status-dot.err{background:#e24b4a;}
-
-/* 안건 목록 */
 .agenda-item{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;margin-bottom:8px;}
 .anum{font-size:10px;font-weight:700;color:var(--gold);background:var(--navy);padding:3px 9px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
-
-/* 코드박스 */
 .code-box{background:var(--navy);border-radius:var(--r);padding:24px 22px;text-align:center;margin:14px 0;}
 .cb-label{font-size:11px;color:#8a9bbf;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
 .cb-val{font-size:36px;font-weight:700;color:var(--gold-light);letter-spacing:10px;font-family:monospace;margin-bottom:8px;}
 .cb-hint{font-size:12px;color:#8a9bbf;margin-bottom:14px;}
-.cb-copy{padding:8px 20px;background:transparent;border:1px solid var(--gold);color:var(--gold-light);border-radius:var(--rs);cursor:pointer;font-size:13px;font-family:'Noto Sans KR',sans-serif;transition:all .15s;}
+.cb-copy{padding:8px 20px;background:transparent;border:1px solid var(--gold);color:var(--gold-light);border-radius:var(--rs);cursor:pointer;font-size:13px;font-family:"Noto Sans KR",sans-serif;transition:all .15s;}
 .cb-copy:hover{background:rgba(180,140,50,.15);}
-
 .info-note{background:var(--gold-pale);border:1px solid #d4b96a;border-radius:var(--rs);padding:12px 16px;font-size:12px;color:#5a4010;line-height:1.7;margin-top:10px;}
-
-/* 투표 접근 */
 .access-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:40px 24px 32px;text-align:center;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.07);}
-.access-logo{font-family:'Noto Serif KR',serif;font-size:12px;color:var(--gold);letter-spacing:.12em;margin-bottom:6px;}
-.access-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;margin-bottom:6px;}
+.access-logo{font-family:"Noto Serif KR",serif;font-size:12px;color:var(--gold);letter-spacing:.12em;margin-bottom:6px;}
+.access-title{font-family:"Noto Serif KR",serif;font-size:21px;font-weight:700;margin-bottom:6px;}
 .access-sub{font-size:13px;color:var(--text2);margin-bottom:26px;line-height:1.7;}
 .code-row{display:flex;gap:10px;justify-content:center;align-items:center;}
 .code-input{width:155px;padding:12px 14px;border:2px solid var(--border);border-radius:var(--rs);font-size:22px;font-weight:700;letter-spacing:6px;text-align:center;font-family:monospace;background:var(--bg);color:var(--text);transition:border-color .15s;}
 .code-input:focus{outline:none;border-color:var(--navy);}
 .code-err{font-size:12px;color:#a32d2d;margin-top:10px;}
-
 .co-banner{background:var(--navy);border-radius:var(--r);padding:16px 20px;margin-bottom:18px;border-left:4px solid var(--gold);}
-.co-name{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;}
+.co-name{font-family:"Noto Serif KR",serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;}
 .co-date{font-size:12px;color:#8a9bbf;}
-
 .sh-row{display:flex;gap:10px;margin-bottom:18px;}
 .form-label{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;display:block;}
-.form-input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg);color:var(--text);font-size:14px;font-family:'Noto Sans KR',sans-serif;transition:border-color .15s;}
+.form-input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--rs);background:var(--bg);color:var(--text);font-size:14px;font-family:"Noto Sans KR",sans-serif;transition:border-color .15s;}
 .form-input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,39,68,.1);}
-
 .vote-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:border-color .2s;}
 .vote-card.voted{border-color:var(--yes-bd);}
 .vc-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
@@ -92,28 +58,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .vc-title{font-size:15px;font-weight:700;line-height:1.4;}
 .vc-desc{font-size:13px;color:var(--text2);margin:6px 0 14px;line-height:1.65;}
 .vote-opts{display:flex;gap:8px;}
-.vbtn{flex:1;padding:11px 6px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:var(--bg);color:var(--text2);transition:all .15s;font-family:'Noto Sans KR',sans-serif;}
+.vbtn{flex:1;padding:11px 6px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:var(--bg);color:var(--text2);transition:all .15s;font-family:"Noto Sans KR",sans-serif;}
 .vbtn:hover{border-color:var(--navy);color:var(--text);}
 .vbtn.s-yes{background:var(--yes-bg);border-color:var(--yes-bd);color:var(--yes-tx);}
 .vbtn.s-no{background:var(--no-bg);border-color:var(--no-bd);color:var(--no-tx);}
 .vbtn.s-abs{background:var(--abs-bg);border-color:var(--abs-bd);color:var(--abs-tx);}
-
-.btn{padding:10px 20px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text);transition:all .15s;font-family:'Noto Sans KR',sans-serif;}
+.btn{padding:10px 20px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text);transition:all .15s;font-family:"Noto Sans KR",sans-serif;}
 .btn:hover{background:var(--bg);} .btn:active{transform:scale(.98);} .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
 .btn-primary{background:var(--navy);color:var(--gold-light);border-color:var(--navy);}
 .btn-primary:hover{background:var(--navy2);}
 .btn-sm{padding:7px 14px;font-size:12px;}
-
 .submit-row{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap;}
 .submit-msg{font-size:13px;color:var(--text2);}
 .submit-ok{color:#2d7a4f;font-weight:700;}
-
-/* 로딩 */
-.loading{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);}
-.spinner{width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .7s linear infinite;}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* 결과 */
 .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
 .stat{background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:14px;text-align:center;}
 .stat-lbl{font-size:11px;color:var(--text2);margin-bottom:4px;}
@@ -134,20 +93,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .vp{background:var(--yes-bg);color:var(--yes-tx);border:1px solid var(--yes-bd);}
 .vf{background:var(--no-bg);color:var(--no-tx);border:1px solid var(--no-bd);}
 .vn{background:var(--bg);color:var(--text3);border:1px solid var(--border);}
-
 .vtable{width:100%;border-collapse:collapse;font-size:12px;}
 .vtable th{text-align:left;padding:8px 10px;font-size:11px;font-weight:700;color:var(--text2);background:var(--bg);border-bottom:1px solid var(--border);}
 .vtable td{padding:9px 10px;border-bottom:1px solid var(--border);}
 .vtable tr:last-child td{border-bottom:none;}
-.export-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
 .refresh-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-
-@media(max-width:560px){
-  .tabs{flex-direction:column;}
-  .stat-grid{grid-template-columns:1fr 1fr;}
-  .vote-opts{flex-direction:column;}
-  .sh-row{flex-direction:column;}
-}
+.export-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+@media(max-width:560px){.tabs{flex-direction:column;}.stat-grid{grid-template-columns:1fr 1fr;}.vote-opts{flex-direction:column;}.sh-row{flex-direction:column;}}
 </style>
 </head>
 <body>
@@ -159,7 +111,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
     <div class="header-meta">
       <div class="hchip">총회 <span>2025년 정기주주총회</span></div>
       <div class="hchip">안건 <span>5개</span></div>
-      <div class="hchip" id="hdr-status" style="display:none;">연동 <span id="hdr-status-txt"></span></div>
     </div>
   </div>
 </header>
@@ -171,55 +122,36 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
     <button class="tab" onclick="switchTab('results')">📊 결과 집계</button>
   </div>
 
-  <!-- ===== 관리자 패널 ===== -->
+  <!-- 관리자 -->
   <div class="panel active" id="panel-admin">
-
-    <!-- STEP 1: 구글시트 URL 설정 -->
-    <div class="setup-box" style="display:none;">
-      <div class="setup-title">📋 STEP 1 — Google Apps Script 웹앱 URL 입력</div>
-      <div class="setup-url-row">
-        <div class="status-dot" id="status-dot"></div>
-        <input class="setup-input" id="gas-url" type="text" placeholder="https://script.google.com/macros/s/AKfy.../exec" oninput="saveUrl()">
-        <button class="btn btn-sm btn-primary" onclick="testConnection()">연결 테스트</button>
-      </div>
-      <div class="setup-hint">
-        구글 스프레드시트 → 확장 프로그램 → Apps Script → Code.gs 코드 붙여넣기 → 배포 → 웹앱 URL 복사 후 위에 입력<br>
-        Apps Script 코드는 함께 제공된 <strong>Code.gs</strong> 파일을 사용하세요.
-      </div>
-    </div>
-
-    <!-- STEP 2: 안건 확인 -->
     <div class="card">
       <div class="card-hd">
         <div class="card-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
         <div>
-          <div class="card-title">STEP 2 — 등록된 안건 확인</div>
-          <div class="card-sub">5개 안건이 미리 등록되어 있습니다</div>
+          <div class="card-title">등록된 안건 — 5개</div>
+          <div class="card-sub">주식회사 메종드파랑 2025년 정기주주총회</div>
         </div>
       </div>
       <div id="agenda-list"></div>
     </div>
-
-    <!-- STEP 3: 코드 생성 -->
-    <button class="btn btn-primary" onclick="generateCode()" style="width:100%;padding:14px;font-size:15px;">STEP 3 — 투표 코드 생성하기</button>
-
+    <button class="btn btn-primary" onclick="generateCode()" style="width:100%;padding:14px;font-size:15px;">투표 코드 생성하기</button>
     <div id="code-area" style="display:none;">
       <div class="code-box">
         <div class="cb-label">주주들에게 이 코드를 공유하세요</div>
         <div class="cb-val" id="code-display">------</div>
-        <div class="cb-hint">"주주 투표" 탭에서 코드 입력 후 바로 투표 가능합니다</div>
+        <div class="cb-hint">주주 투표 탭에서 코드 입력 후 바로 투표 가능합니다</div>
         <button class="cb-copy" onclick="copyCode()">코드 복사</button>
       </div>
       <div class="info-note">
-        📱 <strong>카카오톡 전송:</strong> 이 페이지 URL과 위 6자리 코드를 함께 전송하세요.<br>
-        투표 데이터가 구글 시트에 자동 저장되어 실시간 집계가 가능합니다.
+        📱 이 페이지 URL과 위 6자리 코드를 카카오톡으로 주주들에게 전송하세요.<br>
+        투표 데이터는 구글 시트에 자동 저장되고 결과 집계 탭에서 실시간 확인 가능합니다.
       </div>
     </div>
   </div>
 
-  <!-- ===== 주주 투표 패널 ===== -->
+  <!-- 주주 투표 -->
   <div class="panel" id="panel-voter">
     <div id="voter-access">
       <div class="access-box">
@@ -227,28 +159,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <div class="access-title">2025 정기주주총회<br>전자 투표</div>
         <div class="access-sub">관리자에게 받은 6자리 투표 코드를 입력해 주세요.</div>
         <div class="code-row">
-          <input class="code-input" id="code-input" type="text" maxlength="6" placeholder="••••••" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'')">
+          <input class="code-input" id="code-input" type="text" maxlength="6" placeholder="XXXXXX" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'')">
           <button class="btn btn-primary" onclick="accessVote()">입장하기</button>
         </div>
         <div class="code-err" id="code-err" style="display:none;"></div>
       </div>
       <div style="text-align:center;font-size:12px;color:var(--text3);">코드가 없으시면 담당자에게 문의해 주세요</div>
     </div>
-
     <div id="voter-form" style="display:none;">
       <div class="co-banner">
         <div class="co-name">주식회사 메종드파랑 · 2025년 정기주주총회</div>
         <div class="co-date">온라인 전자 투표 | 각 안건별로 찬성 / 반대 / 기권을 선택해 주세요</div>
       </div>
       <div class="sh-row">
-        <div style="flex:1;">
-          <label class="form-label">주주 성명</label>
-          <input class="form-input" id="sh-name" type="text" placeholder="성함을 입력하세요">
-        </div>
-        <div style="width:170px;">
-          <label class="form-label">보유 주식 수</label>
-          <input class="form-input" id="sh-shares" type="number" placeholder="주식 수" min="1">
-        </div>
+        <div style="flex:1;"><label class="form-label">주주 성명</label><input class="form-input" id="sh-name" type="text" placeholder="성함을 입력하세요"></div>
+        <div style="width:170px;"><label class="form-label">보유 주식 수</label><input class="form-input" id="sh-shares" type="number" placeholder="주식 수" min="1"></div>
       </div>
       <div id="vote-cards"></div>
       <div class="submit-row">
@@ -258,7 +183,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
     </div>
   </div>
 
-  <!-- ===== 결과 집계 패널 ===== -->
+  <!-- 결과 집계 -->
   <div class="panel" id="panel-results">
     <div class="card">
       <div class="card-hd">
@@ -271,9 +196,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         </div>
       </div>
       <div class="refresh-row">
-        <button class="btn btn-sm" onclick="loadResults()">🔄 새로고침</button>
+        <button class="btn btn-sm btn-primary" onclick="loadResults()">🔄 결과 새로고침</button>
         <span id="last-updated" style="font-size:12px;color:var(--text2);"></span>
-        <span id="loading-indicator" style="display:none;" class="loading"><div class="spinner"></div>불러오는 중...</span>
       </div>
       <div class="stat-grid">
         <div class="stat"><div class="stat-lbl">참여 주주 수</div><div class="stat-val" id="r-voters">-</div></div>
@@ -281,14 +205,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <div class="stat"><div class="stat-lbl">총 안건 수</div><div class="stat-val">5</div></div>
       </div>
     </div>
-
     <div id="result-cards"></div>
-
     <div class="card">
       <div style="font-size:14px;font-weight:700;margin-bottom:12px;">투표 참여 내역</div>
-      <div id="voter-list-wrap"><div style="font-size:13px;color:var(--text2);text-align:center;padding:20px 0;">새로고침 버튼을 눌러 결과를 불러오세요</div></div>
+      <div id="voter-list-wrap"><div style="font-size:13px;color:var(--text2);text-align:center;padding:20px 0;">위 새로고침 버튼을 눌러 결과를 불러오세요</div></div>
     </div>
-
     <div class="export-row">
       <button class="btn btn-sm" onclick="exportCSV()">📥 CSV 내보내기</button>
       <button class="btn btn-sm btn-primary" onclick="window.print()">🖨 인쇄하기</button>
@@ -297,96 +218,49 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 </div>
 
 <script>
-// ── 안건 데이터 ──
-const AGENDAS = [
-  { title:"제1호 의안 — 재무제표에 대한 결의의 건",    desc:"2025년 재무상태표, 손익계산서 및 결산부속서류에 대한 결의" },
-  { title:"제2호 의안 — 투자약정서 작성의 건",         desc:"본 호텔 공동투자의 투자자들간의 약정사항을 정하기 위한 투자약정서 작성 결의" },
-  { title:"제3호 의안 — 대표투자자 선정의 건",         desc:"후보자: 이지훈 대표이사" },
-  { title:"제4호 의안 — PM 수수료 책정의 건",          desc:"토지매입부터 호텔완공 운영개시까지의 프로젝트 관리(PM) 수수료 총액: 3억 원" },
-  { title:"제5호 의안 — 위탁운영 수수료 책정의 건",    desc:"호텔 완공 후 운영 전반에 대한 위탁수수료: 매출의 25%로 책정" }
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbyIRP71uXVmdIxdp_8a7wnSbM_kjwvkWsj_4K2Yfpfz87mrw0dH_S45RFnp1zUaGGvvpA/exec';
+
+var AGENDAS = [
+  {title:"제1호 의안 — 재무제표에 대한 결의의 건", desc:"2025년 재무상태표, 손익계산서 및 결산부속서류에 대한 결의"},
+  {title:"제2호 의안 — 투자약정서 작성의 건", desc:"본 호텔 공동투자의 투자자들간의 약정사항을 정하기 위한 투자약정서 작성 결의"},
+  {title:"제3호 의안 — 대표투자자 선정의 건", desc:"후보자: 이지훈 대표이사"},
+  {title:"제4호 의안 — PM 수수료 책정의 건", desc:"토지매입부터 호텔완공 운영개시까지의 프로젝트 관리(PM) 수수료 총액: 3억 원"},
+  {title:"제5호 의안 — 위탁운영 수수료 책정의 건", desc:"호텔 완공 후 운영 전반에 대한 위탁수수료: 매출의 25%로 책정"}
 ];
 
-let activeCode = null;
-let sel = {};
-let cachedVotes = [];
-let GAS_URL = 'https://script.google.com/macros/s/AKfycbzQtCbsTPmGuWrMHfPWCRDWQGXIvebQW8WSQdC7U3nFcYLpQN53TtPKyNupUEWSqpXDVg/exec';
+var activeCode = null;
+var sel = {};
+var cachedVotes = [];
 
-// ── 초기화 ──
-window.onload = () => {
-  updateStatusDot('ok');
-  document.getElementById('hdr-status').style.display='flex';
-  document.getElementById('hdr-status-txt').textContent='연결됨';
+window.onload = function() {
   renderAgendaList();
   renderResultCards([]);
 };
 
-function saveUrl() {
-  GAS_URL = document.getElementById('gas-url').value.trim();
-  localStorage.setItem('gas_url', GAS_URL);
-  updateStatusDot('');
-}
-
-function updateStatusDot(state) {
-  const dot = document.getElementById('status-dot');
-  dot.className = 'status-dot' + (state==='ok' ? ' ok' : state==='err' ? ' err' : '');
-  const hdr = document.getElementById('hdr-status');
-  const txt = document.getElementById('hdr-status-txt');
-  if (state==='ok') { hdr.style.display='flex'; txt.textContent='연결됨'; }
-  else if (state==='err') { hdr.style.display='flex'; txt.textContent='오류'; }
-}
-
-async function testConnection() {
-  const url = document.getElementById('gas-url').value.trim();
-  if (!url) { alert('URL을 입력해 주세요'); return; }
-  try {
-    const res = await fetch(url + '?test=1');
-    const json = await res.json();
-    if (json.status === 'ok') {
-      updateStatusDot('ok');
-      alert('✅ 연결 성공! 구글 시트와 정상 연동되었습니다.');
-    } else {
-      throw new Error(json.message);
-    }
-  } catch(e) {
-    updateStatusDot('err');
-    alert('❌ 연결 실패: ' + e.message + '\n\nApps Script 배포 설정을 확인해 주세요.\n(액세스 권한: 모든 사용자)');
-  }
-}
-
-// ── 안건 목록 ──
 function renderAgendaList() {
-  document.getElementById('agenda-list').innerHTML = AGENDAS.map((a,i) => `
-    <div class="agenda-item">
-      <span class="anum">제${i+1}호</span>
-      <div>
-        <div style="font-size:13px;font-weight:700;margin-bottom:2px;">${a.title.replace(/^제\d+호 의안 — /,'')}</div>
-        <div style="font-size:12px;color:var(--text2);">${a.desc}</div>
-      </div>
-    </div>`).join('');
+  document.getElementById('agenda-list').innerHTML = AGENDAS.map(function(a,i) {
+    return '<div class="agenda-item"><span class="anum">제'+(i+1)+'호</span><div><div style="font-size:13px;font-weight:700;margin-bottom:2px;">'+a.title.replace(/^제\d+호 의안 — /,'')+'</div><div style="font-size:12px;color:var(--text2);">'+a.desc+'</div></div></div>';
+  }).join('');
 }
 
-// ── 코드 생성 ──
 function generateCode() {
-
   activeCode = Math.random().toString(36).substr(2,6).toUpperCase();
   document.getElementById('code-display').textContent = activeCode;
   document.getElementById('code-area').style.display = 'block';
-  document.getElementById('hdr-status').style.display = 'flex';
   document.getElementById('code-area').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function copyCode() {
-  navigator.clipboard.writeText(activeCode).then(() => {
-    const b = document.querySelector('.cb-copy');
+  navigator.clipboard.writeText(activeCode).then(function() {
+    var b = document.querySelector('.cb-copy');
     b.textContent = '✓ 복사됨!';
-    setTimeout(()=>b.textContent='코드 복사', 1800);
-  }).catch(()=>{ prompt('코드를 복사하세요:', activeCode); });
+    setTimeout(function(){b.textContent='코드 복사';}, 1800);
+  }).catch(function(){ prompt('코드를 복사하세요:', activeCode); });
 }
 
-// ── 투표 접근 ──
 function accessVote() {
-  const v = document.getElementById('code-input').value.trim().toUpperCase();
-  const err = document.getElementById('code-err');
+  var v = document.getElementById('code-input').value.trim().toUpperCase();
+  var err = document.getElementById('code-err');
   if (!activeCode) { err.textContent='먼저 관리자 탭에서 투표 코드를 생성하세요'; err.style.display='block'; return; }
   if (v !== activeCode) { err.textContent='코드가 올바르지 않습니다. 다시 확인해 주세요'; err.style.display='block'; return; }
   err.style.display='none';
@@ -397,19 +271,9 @@ function accessVote() {
 
 function renderVoteCards() {
   sel = {};
-  document.getElementById('vote-cards').innerHTML = AGENDAS.map((a,i) => `
-    <div class="vote-card" id="vc-${i}">
-      <div class="vc-head">
-        <span class="vc-num">제${i+1}호</span>
-        <span class="vc-title">${a.title}</span>
-      </div>
-      <div class="vc-desc">${a.desc}</div>
-      <div class="vote-opts">
-        <button class="vbtn" id="v${i}-yes"     onclick="pick(${i},'yes')">✔ 찬성</button>
-        <button class="vbtn" id="v${i}-no"      onclick="pick(${i},'no')">✘ 반대</button>
-        <button class="vbtn" id="v${i}-abstain" onclick="pick(${i},'abstain')">— 기권</button>
-      </div>
-    </div>`).join('');
+  document.getElementById('vote-cards').innerHTML = AGENDAS.map(function(a,i) {
+    return '<div class="vote-card" id="vc-'+i+'"><div class="vc-head"><span class="vc-num">제'+(i+1)+'호</span><span class="vc-title">'+a.title+'</span></div><div class="vc-desc">'+a.desc+'</div><div class="vote-opts"><button class="vbtn" id="v'+i+'-yes" onclick="pick('+i+','yes')">✔ 찬성</button><button class="vbtn" id="v'+i+'-no" onclick="pick('+i+','no')">✘ 반대</button><button class="vbtn" id="v'+i+'-abstain" onclick="pick('+i+','abstain')">— 기권</button></div></div>';
+  }).join('');
   document.getElementById('submit-btn').disabled = false;
   document.getElementById('submit-msg').textContent = '모든 안건에 의사를 표시한 후 제출해 주세요';
   document.getElementById('submit-msg').className = 'submit-msg';
@@ -417,150 +281,97 @@ function renderVoteCards() {
 
 function pick(i, c) {
   sel[i] = c;
-  ['yes','no','abstain'].forEach(x => {
-    const cls = x===c ? (c==='yes'?' s-yes':c==='no'?' s-no':' s-abs') : '';
-    document.getElementById(`v${i}-${x}`).className = 'vbtn' + cls;
+  ['yes','no','abstain'].forEach(function(x) {
+    var cls = x===c ? (c==='yes'?' s-yes':c==='no'?' s-no':' s-abs') : '';
+    document.getElementById('v'+i+'-'+x).className = 'vbtn'+cls;
   });
-  document.getElementById(`vc-${i}`).classList.add('voted');
+  document.getElementById('vc-'+i).classList.add('voted');
 }
 
-// ── 투표 제출 (구글 시트로 전송) ──
-async function submitVote() {
-  const name   = document.getElementById('sh-name').value.trim();
-  const shares = parseInt(document.getElementById('sh-shares').value);
-  if (!name)          { alert('주주 성명을 입력하세요'); return; }
+function submitVote() {
+  var name = document.getElementById('sh-name').value.trim();
+  var shares = parseInt(document.getElementById('sh-shares').value);
+  if (!name) { alert('주주 성명을 입력하세요'); return; }
   if (!shares||shares<1) { alert('보유 주식 수를 입력하세요'); return; }
-  if (AGENDAS.some((_,i)=>!sel[i])) { alert('모든 안건(5개)에 찬성/반대/기권을 선택해 주세요'); return; }
-
-  const btn = document.getElementById('submit-btn');
-  const msg = document.getElementById('submit-msg');
+  for (var i=0; i<AGENDAS.length; i++) { if (!sel[i]) { alert('모든 안건(5개)에 찬성/반대/기권을 선택해 주세요'); return; } }
+  var btn = document.getElementById('submit-btn');
+  var msg = document.getElementById('submit-msg');
   btn.disabled = true;
-  msg.innerHTML = '<span class="loading"><div class="spinner"></div>제출 중...</span>';
-  msg.className = 'submit-msg';
-
-  const payload = {
-    name,
-    shares,
-    votes: AGENDAS.map((_,i) => sel[i]==='yes'?'찬성':sel[i]==='no'?'반대':'기권')
-  };
-
-  try {
-    if (!GAS_URL) throw new Error('관리자가 구글 시트 URL을 설정하지 않았습니다');
-    const res = await fetch(GAS_URL, {
-      method: 'POST',
-      body: JSON.stringify(payload)
+  msg.innerHTML = '<span class="spinner"></span>제출 중...';
+  var payload = {name:name, shares:shares, votes:AGENDAS.map(function(_,i){ return sel[i]==='yes'?'찬성':sel[i]==='no'?'반대':'기권'; })};
+  fetch(GAS_URL, {method:'POST', body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(json){
+      if (json.status !== 'ok') throw new Error(json.message);
+      msg.innerHTML = '✅ <strong>'+name+'</strong> 주주님의 투표가 완료되었습니다 ('+shares.toLocaleString()+'주)';
+      msg.className = 'submit-msg submit-ok';
+    })
+    .catch(function(e){
+      btn.disabled = false;
+      msg.textContent = '❌ 제출 실패: '+e.message;
+      msg.className = 'submit-msg';
     });
-    const json = await res.json();
-    if (json.status !== 'ok') throw new Error(json.message);
-    msg.innerHTML = `✅ <strong>${name}</strong> 주주님의 투표가 완료되었습니다 (${shares.toLocaleString()}주)`;
-    msg.className = 'submit-msg submit-ok';
-  } catch(e) {
-    btn.disabled = false;
-    msg.textContent = '❌ 제출 실패: ' + e.message;
-    msg.className = 'submit-msg';
-    console.error(e);
-  }
 }
 
-// ── 결과 불러오기 (구글 시트에서) ──
-async function loadResults() {
-  if (!GAS_URL) {
-    document.getElementById('voter-list-wrap').innerHTML =
-      '<div style="font-size:13px;color:#a32d2d;padding:16px;text-align:center;">관리자 탭에서 구글 시트 URL을 먼저 설정해 주세요</div>';
-    return;
-  }
-  document.getElementById('loading-indicator').style.display = 'flex';
-  try {
-    const res  = await fetch(GAS_URL + '?action=get');
-    const json = await res.json();
-    if (json.status !== 'ok') throw new Error(json.message);
-    cachedVotes = json.votes || [];
-    renderResultCards(cachedVotes);
-    document.getElementById('last-updated').textContent =
-      '마지막 업데이트: ' + new Date().toLocaleTimeString('ko-KR');
-  } catch(e) {
-    document.getElementById('voter-list-wrap').innerHTML =
-      `<div style="font-size:13px;color:#a32d2d;padding:16px;text-align:center;">불러오기 실패: ${e.message}</div>`;
-  } finally {
-    document.getElementById('loading-indicator').style.display = 'none';
-  }
+function loadResults() {
+  var btn = document.querySelector('.refresh-row .btn');
+  btn.textContent = '불러오는 중...';
+  btn.disabled = true;
+  fetch(GAS_URL+'?action=get')
+    .then(function(r){return r.json();})
+    .then(function(json){
+      if (json.status !== 'ok') throw new Error(json.message);
+      cachedVotes = json.votes || [];
+      renderResultCards(cachedVotes);
+      document.getElementById('last-updated').textContent = '업데이트: '+new Date().toLocaleTimeString('ko-KR');
+    })
+    .catch(function(e){
+      document.getElementById('voter-list-wrap').innerHTML = '<div style="font-size:13px;color:#a32d2d;padding:16px;text-align:center;">불러오기 실패: '+e.message+'</div>';
+    })
+    .finally(function(){
+      btn.textContent = '🔄 결과 새로고침';
+      btn.disabled = false;
+    });
 }
 
 function renderResultCards(votes) {
   document.getElementById('r-voters').textContent = votes.length;
-  document.getElementById('r-shares').textContent = votes.reduce((s,v)=>s+(+v.shares),0).toLocaleString();
-
-  document.getElementById('result-cards').innerHTML = AGENDAS.map((a,i) => {
-    let y=0,n=0,ab=0;
-    votes.forEach(v => {
-      const c = Array.isArray(v.votes) ? v.votes[i] : '';
-      if (c==='찬성') y+=+v.shares;
-      else if (c==='반대') n+=+v.shares;
-      else if (c==='기권') ab+=+v.shares;
+  document.getElementById('r-shares').textContent = votes.reduce(function(s,v){return s+(+v.shares);},0).toLocaleString();
+  document.getElementById('result-cards').innerHTML = AGENDAS.map(function(a,i) {
+    var y=0,n=0,ab=0;
+    votes.forEach(function(v){
+      var c=Array.isArray(v.votes)?v.votes[i]:'';
+      if(c==='찬성')y+=+v.shares; else if(c==='반대')n+=+v.shares; else if(c==='기권')ab+=+v.shares;
     });
-    const tot=y+n+ab;
-    const yp=tot>0?Math.round(y/tot*100):0;
-    const np=tot>0?Math.round(n/tot*100):0;
-    const ap=tot>0?Math.round(ab/tot*100):0;
-    const verdict = tot===0
-      ? '<span class="verdict vn">집계 대기</span>'
-      : y>n ? '<span class="verdict vp">✔ 가결</span>' : '<span class="verdict vf">✘ 부결</span>';
-    return `<div class="rc">
-      <div class="rc-head">
-        <span style="font-size:10px;font-weight:700;color:var(--gold);background:var(--navy);padding:3px 9px;border-radius:4px;">제${i+1}호</span>
-        <span style="font-size:13px;font-weight:700;flex:1;">${a.title}</span>${verdict}
-      </div>
-      <div class="bar-row"><span class="blbl blbl-y">찬성</span><div class="btrack"><div class="bfill bf-y" style="width:${yp}%"></div></div><span class="bpct">${yp}%</span><span class="bshares">${y.toLocaleString()}주</span></div>
-      <div class="bar-row"><span class="blbl blbl-n">반대</span><div class="btrack"><div class="bfill bf-n" style="width:${np}%"></div></div><span class="bpct">${np}%</span><span class="bshares">${n.toLocaleString()}주</span></div>
-      <div class="bar-row"><span class="blbl blbl-a">기권</span><div class="btrack"><div class="bfill bf-a" style="width:${ap}%"></div></div><span class="bpct">${ap}%</span><span class="bshares">${ab.toLocaleString()}주</span></div>
-    </div>`;
+    var tot=y+n+ab;
+    var yp=tot>0?Math.round(y/tot*100):0;
+    var np=tot>0?Math.round(n/tot*100):0;
+    var ap=tot>0?Math.round(ab/tot*100):0;
+    var verdict=tot===0?'<span class="verdict vn">집계 대기</span>':y>n?'<span class="verdict vp">✔ 가결</span>':'<span class="verdict vf">✘ 부결</span>';
+    return '<div class="rc"><div class="rc-head"><span style="font-size:10px;font-weight:700;color:var(--gold);background:var(--navy);padding:3px 9px;border-radius:4px;">제'+(i+1)+'호</span><span style="font-size:13px;font-weight:700;flex:1;">'+a.title+'</span>'+verdict+'</div><div class="bar-row"><span class="blbl blbl-y">찬성</span><div class="btrack"><div class="bfill bf-y" style="width:'+yp+'%"></div></div><span class="bpct">'+yp+'%</span><span class="bshares">'+y.toLocaleString()+'주</span></div><div class="bar-row"><span class="blbl blbl-n">반대</span><div class="btrack"><div class="bfill bf-n" style="width:'+np+'%"></div></div><span class="bpct">'+np+'%</span><span class="bshares">'+n.toLocaleString()+'주</span></div><div class="bar-row"><span class="blbl blbl-a">기권</span><div class="btrack"><div class="bfill bf-a" style="width:'+ap+'%"></div></div><span class="bpct">'+ap+'%</span><span class="bshares">'+ab.toLocaleString()+'주</span></div></div>';
   }).join('');
-
-  const wrap = document.getElementById('voter-list-wrap');
-  if (!votes.length) {
-    wrap.innerHTML = '<div style="font-size:13px;color:var(--text2);text-align:center;padding:20px 0;">아직 투표한 주주가 없습니다</div>';
-    return;
-  }
-  wrap.innerHTML = `<table class="vtable"><thead><tr>
-    <th>주주명</th><th>주식(주)</th>
-    ${AGENDAS.map((_,i)=>`<th>제${i+1}호</th>`).join('')}
-    <th>제출시간</th></tr></thead><tbody>
-    ${votes.map(v=>`<tr>
-      <td><strong style="font-weight:700;">${v.name}</strong></td>
-      <td>${(+v.shares).toLocaleString()}</td>
-      ${AGENDAS.map((_,i)=>{
-        const c=Array.isArray(v.votes)?v.votes[i]:'';
-        return `<td>${c==='찬성'?`<span style="color:var(--yes-tx);font-weight:700;">찬성</span>`:c==='반대'?`<span style="color:var(--no-tx);font-weight:700;">반대</span>`:`<span style="color:var(--abs-tx);">기권</span>`}</td>`;
-      }).join('')}
-      <td style="color:var(--text2);font-size:11px;">${v.time||''}</td>
-    </tr>`).join('')}
-    </tbody></table>`;
+  var wrap=document.getElementById('voter-list-wrap');
+  if(!votes.length){wrap.innerHTML='<div style="font-size:13px;color:var(--text2);text-align:center;padding:20px 0;">아직 투표한 주주가 없습니다</div>';return;}
+  wrap.innerHTML='<table class="vtable"><thead><tr><th>주주명</th><th>주식(주)</th>'+AGENDAS.map(function(_,i){return '<th>제'+(i+1)+'호</th>';}).join('')+'<th>제출시간</th></tr></thead><tbody>'+votes.map(function(v){return '<tr><td><strong style="font-weight:700;">'+v.name+'</strong></td><td>'+(+v.shares).toLocaleString()+'</td>'+AGENDAS.map(function(_,i){var c=Array.isArray(v.votes)?v.votes[i]:'';return '<td>'+( c==='찬성'?'<span style="color:var(--yes-tx);font-weight:700;">찬성</span>':c==='반대'?'<span style="color:var(--no-tx);font-weight:700;">반대</span>':'<span style="color:var(--abs-tx);">기권</span>')+'</td>';}).join('')+'<td style="color:var(--text2);font-size:11px;">'+(v.time||'')+'</td></tr>';}).join('')+'</tbody></table>';
 }
 
-// ── CSV ──
 function exportCSV() {
-  if (!cachedVotes.length) { alert('먼저 결과를 새로고침해 주세요'); return; }
-  const hdr = ['주주명','보유주식수',...AGENDAS.map((_,i)=>`제${i+1}호`),'제출시간'];
-  const rows = cachedVotes.map(v=>[v.name,v.shares,...(v.votes||[]),v.time||'']);
-  const csv = [hdr,...rows].map(r=>r.join(',')).join('\n');
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
-  a.download = '메종드파랑_2025주주총회_투표결과.csv';
+  if(!cachedVotes.length){alert('먼저 결과 새로고침을 눌러주세요');return;}
+  var hdr=['주주명','보유주식수'].concat(AGENDAS.map(function(_,i){return '제'+(i+1)+'호';})).concat(['제출시간']);
+  var rows=cachedVotes.map(function(v){return [v.name,v.shares].concat(v.votes||[]).concat([v.time||'']);});
+  var csv=[hdr].concat(rows).map(function(r){return r.join(',');}).join('\n');
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
+  a.download='메종드파랑_2025주주총회_투표결과.csv';
   a.click();
 }
 
-// ── 탭 전환 ──
 function switchTab(name) {
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['admin','voter','results'][i]===name));
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(function(t,i){t.classList.toggle('active',['admin','voter','results'][i]===name);});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
   document.getElementById('panel-'+name).classList.add('active');
-  if (name==='voter') {
-    document.getElementById('voter-access').style.display='block';
-    document.getElementById('voter-form').style.display='none';
-    document.getElementById('code-input').value='';
-    document.getElementById('code-err').style.display='none';
-  }
-  if (name==='results') loadResults();
+  if(name==='voter'){document.getElementById('voter-access').style.display='block';document.getElementById('voter-form').style.display='none';document.getElementById('code-input').value='';document.getElementById('code-err').style.display='none';}
+  if(name==='results') loadResults();
 }
 </script>
 </body>
